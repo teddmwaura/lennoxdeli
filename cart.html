@@ -1,0 +1,88 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🔥 Clear page title -->
+  <title>Your Cart | Lennox deli Gilgil</title>
+
+  <!-- 🔥 Light description -->
+  <meta name="description" content="View and manage your selected snacks, drinks, and meals before checkout at Lennox deli Gilgil.">
+
+  <!-- 🔥 Prevent indexing -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-gray-100">
+
+<!-- NAVBAR -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#cecece]">
+  <div class="flex items-center justify-between px-4 md:px-10 py-4">
+    
+    <div class="flex items-center gap-2">
+       <a href="index.html"><img src="./images/logo-image.jpeg" alt="Lennoxd Deli" class="logo h-10 sm:h-12 md:h-14 w-auto object-contain mix-blend-multiply"></a>
+    </div>
+
+    <div class="flex items-center gap-6">
+      <div class="relative">
+        <i class="fas fa-shopping-cart text-lg"></i>
+        <span class="absolute -top-2 -right-2 text-xs text-red-600 update-cart-quantity-icon">0</span>
+      </div>
+
+      <div class="relative">
+        <i class="fas fa-user"></i>
+        <div class="absolute -top-5 left-2 text-xs update-username"></div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="pt-10 px-4 md:px-12 max-w-6xl mx-auto">
+
+  <!-- TITLE -->
+  <div class="mb-4">
+    <h1 class="text-2xl mb-2">My Shopping Cart</h1>
+    <h2 class="text-lg text-gray-500 calculate-total-html"></h2>
+  </div>
+
+  <!-- CART ITEM -->
+  <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-7 gap-2 justify-center items-center bg-white rounded-lg p-4 mb-4 text-center render-product-html">
+
+
+
+  </div>
+ <div class="hidden fixed inset-0 flex items-center justify-center bg-green-300/40 z-50 text-xl transition-all duration-500 ease-in div-container-error">
+     <div class="p-6 bg-white text-black transition-all duration-500 ease-in  div-container-display">Please enter size and color</div>
+  </div>
+  <!-- CHECKOUT -->
+  <div class="mt-8 text-center md:text-left">
+    <p class="text-sm mb-4">Tax included and shipping calculated at checkout</p>
+    <a href="checkout.html">
+      <button class="w-full md:w-auto px-12 py-3 bg-blue-500 text-white rounded-lg">
+        Checkout
+      </button>
+    </a>
+  </div>
+
+</main>
+
+<script type="module" src="cart/cart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🔥 Page Title (important for trust) -->
+  <title>Secure Checkout | Lennox deli Gilgil</title>
+
+  <!-- 🔥 Basic SEO (light, not heavy) -->
+  <meta name="description" content="Securely complete your Lennox deli order. Fast food, juices, and snacks delivered in Gilgil.">
+
+  <!-- 🔥 Prevent Google from indexing this page -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16/dist/smooth-scroll.polyfills.min.js"></script>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-gray-100">
+
+<!-- NAVBAR -->
+<header class="fixed top-0 left-0 right-0 z-[100] bg-[#cecece]">
+  <div class="flex items-center justify-between px-4 md:px-10 py-4">
+    <div class="flex items-center gap-2">
+     <a href="index.html"><img src="./images/logo-image.jpeg" alt="Lennox Deli" class="logo h-10 sm:h-12 md:h-14 w-auto object-contain mix-blend-multiply"></a>
+    </div>
+    <div class="relative">
+      <i class="fas fa-user"></i>
+      <div class="absolute -top-5 left-2 text-xs update-username"></div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="pt-14 px-4 md:px-12 max-w-6xl mx-auto">
+
+  <!-- GRID -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+    <!-- LEFT: CART SUMMARY -->
+    <div>
+
+      <h2 class="text-xl mb-2">In Your Bag</h2>
+      <p class="mb-6 js-display-price font-medium">Amount Payable: 0</p>
+
+      <!-- PRODUCT -->
+      <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 bg-white p-6 rounded-lg mb-3 justify-center items-center container-contain-html-js">
+
+        
+
+      </div>
+ <div class="hidden fixed inset-0 flex items-center justify-center bg-green-300/40 z-50 text-xl transition-all duration-500 ease-in div-container-error">
+     <div class="p-6 bg-white text-black transition-all duration-500 ease-in  div-container-display">Please enter size and color</div>
+  </div>
+      <!-- TERMS -->
+      <div class="text-sm">
+        <p class="mb-2">Your total price + shipping cost</p>
+
+        <h4 class="bg-red-500 text-white text-center rounded-md py-1 mb-3">
+          Terms and Conditions
+        </h4>
+
+        <p class="leading-relaxed text-gray-700">
+          After placing your order, I will personally receive it and give you a call to confirm the details.
+          Delivery will be made to the pickup point you entered.
+
+         
+
+          Delivery may be handled personally or by a trusted agent.
+          Orders are dispatched only after confirmation.
+          Thank you for choosing Lennox deli.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div>
+
+      <form class="checkout-form bg-white p-6 rounded-md shadow">
+
+        <h2 class="text-2xl md:text-3xl font-semibold text-center mb-8">
+          Shipping & Delivery
+        </h2>
+
+        <div class="flex flex-col gap-4 mb-6">
+          <input
+            type="text"
+            placeholder="Pickup point"
+            class="border px-4 py-2 rounded outline-none pickup-point"
+          />
+         <input type="text" placeholder="Phone Number (e.g 07XXXXXXXX)"
+    class="w-full mb-4 p-3 border rounded-lg phone-input">
+        </div>
+
+        <div class="mb-4 js-container-html">pay ksh 1650</div>
+
+        <button
+          class="w-full py-3 bg-green-600 rounded-md text-white font-medium"
+        >
+          pay with mpesa
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="text-center text-gray-500 text-sm mt-12 border-t pt-4">
+    © 2026 Lennox deli. All Rights Reserved.
+  </footer>
+
+</main>
+
+<script type="module" src="checkout/checkout.js"></script>
+
+</body>
+</html>

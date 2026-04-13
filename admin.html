@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 🔥 Clean title -->
+    <title>Admin Dashboard | Lennox deli</title>
+
+    <!-- 🔥 Prevent indexing (VERY IMPORTANT) -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- 🔥 Optional (extra privacy hint) -->
+    <meta name="googlebot" content="noindex, nofollow">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Your styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-[#efefef]">
+    <div class="flex h-screen">
+      <div class="fixed left-[10px] top-[20px]">
+                <i class="fa-solid fa-bars cursor-pointer text-xl div-open-html text-gray-500"></i>
+            </div>
+        <aside class="w-54 rounded-md bg-gray-300 flex flex-col pt-20 border-r  absolute top-0 bottom-0 left-[-300px]  transition-all duration-[800ms]  div-nav-html">
+           <div class="absolute right-[10px] top-0">
+            <i class="fa-solid fa-xmark text-xlg cursor-pointer div-close-html"></i>
+           </div>
+            <a href="index.html"><p class="text-gray-500 text-center mb-4">main menu</p></a>
+            <nav class="flex flex-col gap-4">
+                <button class="hover:bg-gray-100 p-2 rounded-md text-[#260b0b] text-lg select-button-js " data-page-id="dashboard">dashboard</button>
+                <button class="hover:bg-gray-100 p-2 rounded-md text-[#260b0b] text-lg select-button-js" data-page-id="orders">orders</button>
+                <button class="hover:bg-gray-100 p-2 rounded-md text-[#260b0b] text-lg select-button-js" data-page-id="analytics">analytics</button>
+                <button class="hover:bg-gray-100 p-2 rounded-md text-[#260b0b] text-lg select-button-js" data-page-id="ai">ai suggestions</button>
+            </nav>
+        </aside>
+        <main class="flex-1 overflow-auto">
+            <div id="dashboard" class="page border-t pt-4">
+            <h2 class="text-2xl text-gray-700 mb-2 text-center">welcome back, Lennox deli</h2>
+            <p class="text-gray-500 mb-4 text-center">welcome to dashboard</p>
+            
+            <div class="flex flex-wrap gap-2 justify-center align-center mb-4">
+                <div class="shadow-lg p-2 rounded-lg bg-gray-300">
+                    <h3 class="text-white mb-2">Total Revenue: <span class="text-gray-500 span-total-revenue">kes 0</span></h3>
+                </div>
+                <div class="shadow-lg p-2 ml-2 rounded-lg bg-gray-300">
+                    <h3 class="mb-2 text-white">Expenses: <span class="text-gray-500 span-total-expenses">kes 0</span></h3>
+                </div>
+
+                <div class="shadow-lg p-2 ml-2 rounded-lg bg-gray-300">
+                <h3 class="mb-2 text-white">Net Profit: <span class="text-gray-500 span-total-profit">kes 0</span></h3>
+                </div>
+
+                 <div class="shadow-lg p-2 ml-2 rounded-lg bg-gray-300">
+                <h3 class="mb-2 text-white">Orders: <span class="text-gray-500 span-total-orders">0</span></h3>
+                </div>
+            </div>
+            
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mt-4">
+
+  <!-- LEFT SIDE -->
+  <div class="grid grid-cols-1 gap-6">
+
+    <!-- Sales Table -->
+    <div class=" bg-white p-4 rounded-xl shadow">
+      <h1 class="text-gray-500 mb-4 text-center text-sm md:text-base">
+        Sales Today Per Item Sold
+      </h1>
+
+      <table class="w-full">
+        <thead class="bg-gray-300 text-white text-sm">
+          <tr>
+            <th class="py-2 px-3 text-left">Product</th>
+            <th class="py-2 px-3 text-left">Sold</th>
+            <th class="py-2 px-3 text-left">Amount</th>
+          </tr>
+        </thead>
+
+        <tbody class="text-gray-700 text-sm append-todays-orders">
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Stock Table -->
+    <div class="overflow-x-auto bg-white p-4 rounded-xl shadow">
+      <h1 class="text-gray-500 mb-4 text-center text-sm md:text-base">
+        Stock Overview
+      </h1>
+
+      <table class="min-w-full">
+        <thead class="bg-gray-300 text-white text-sm">
+          <tr>
+            <th class="py-2 px-3 text-left">Product</th>
+            <th class="py-2 px-3 text-left">Quantity</th>
+            <th class="py-2 px-3 text-left">Status</th>
+          </tr>
+        </thead>
+
+        <tbody class="text-gray-700 text-sm stock-overview-html-js">
+          <tr class="border-b">
+            <td class="py-2 px-3">-</td>
+            <td class="py-2 px-3">-</td>
+            <td class="py-2 px-3">
+              <span class="bg-green-100 px-2 py-1 rounded text-xs">
+                -
+              </span>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="overflow-x-auto bg-white p-4 rounded-xl shadow">
+
+    <h1 class="text-gray-500 mb-4 text-center text-sm md:text-base">
+      Monthly Spending
+    </h1>
+
+    <table class="min-w-full">
+      <thead class="bg-gray-300 text-white text-sm">
+        <tr>
+          <th class="py-2 px-3 text-left">Expense</th>
+          <th class="py-2 px-3 text-left">Amount</th>
+          <th class="py-2 px-3 text-left">Status</th>
+          <th class="py-2 px-3 text-left">Total</th>
+        </tr>
+      </thead>
+
+      <tbody class="text-gray-700 text-sm">
+        <tr class="border-b">
+          <td class="py-2 px-3">Shop Rent</td>
+          <td class="py-2 px-3">10,000</td>
+          <td class="py-2 px-3">
+            <span class="bg-green-100 px-2 py-1 rounded text-xs">paid</span>
+          </td>
+          <td class="py-2 px-3">10,000</td>
+        </tr>
+
+        <tr class="border-b">
+          <td class="py-2 px-3">Salary</td>
+          <td class="py-2 px-3">5,000</td>
+          <td class="py-2 px-3">
+            <span class="bg-red-100 text-red-700 px-2 py-1 rounded text-xs">
+              not paid
+            </span>
+          </td>
+          <td class="py-2 px-3">5,000</td>
+        </tr>
+
+        <tr class="border-b">
+          <td class="py-2 px-3">Electricity</td>
+          <td class="py-2 px-3">10,000</td>
+          <td class="py-2 px-3">
+            <span class="bg-red-100 text-red-700 px-2 py-1 rounded text-xs">
+              not paid
+            </span>
+          </td>
+          <td class="py-2 px-3">10,000</td>
+        </tr>
+
+        <tr class="border-b">
+          <td class="py-2 px-3">Other</td>
+          <td class="py-2 px-3">2,000</td>
+          <td class="py-2 px-3">
+            <span class="bg-yellow-100 px-2 py-1 rounded text-xs">
+              pending
+            </span>
+          </td>
+          <td class="py-2 px-3">2,000</td>
+        </tr>
+
+        <tr class="font-semibold">
+          <td class="py-2 px-3">Net Profit</td>
+          <td class="py-2 px-3">—</td>
+          <td class="py-2 px-3">
+            <span class="bg-green-100 px-2 py-1 rounded text-xs">
+              good
+            </span>
+          </td>
+          <td class="py-2 px-3">15,000</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+          
+   </div>
+
+<!--orders-->
+
+            <div id="orders" class="page hidden">
+                <section>
+                    <div class="text-center pt-12">
+                        <h1 class="text-gray-500">your orders and pending orders appear here</h1>
+                    </div>
+                    <div class="">
+  <h2 class="text-xl mb-4">Customer Orders</h2>
+
+<div class="overflow-x-auto">
+    <table class="bg-white rounded-lg overflow-hidden shadow">
+      
+    
+      <thead class="bg-gray-300 text-white">
+        <tr>
+          <th class="py-3 px-4 text-left">id</th>
+          <th class="py-3 px-4 text-left">date</th>
+          <th class="py-3 px-4 text-left">phone no.</th>
+          <th class="py-3 px-4 text-left">pickup</th>
+          <th class="py-3 px-4 text-left">order</th>
+          <th class="py-3 px-4 text-left">status</th>
+        </tr>
+      </thead>
+
+
+      <tbody id="ordersTable"  class="text-gray-700 whitespace-nowrap">
+  
+
+      </tbody>
+    </table>
+  </div>
+</div>
+                </section>
+            </div>
+
+<!--analytics-->
+
+            <div id="analytics" class="page hidden pb-6 pt-12">
+                <section>
+                    <div class="bg-white p-6 rounded shadow mb-6">
+  <h2 class="text-gray-500 mb-4">Daily Stock Entry</h2>
+
+  <div class="grid md:grid-cols-2 gap-4">
+<input id="date" type="date"
+class="border p-2 rounded w-full outline-none">
+    <input id="product" type="text" placeholder="Product Name" class="border p-2 rounded w-full outline-none">
+
+<input id="opening" type="text" placeholder="Opening Stock" class="border p-2 rounded w-full outline-none">
+
+<input id="closing" type="text" placeholder="Closing Stock" class="border p-2 rounded w-full outline-none">
+
+<input id="added" type="text" placeholder="added stock" class="border p-2 rounded w-full outline-none">
+
+<input id="cost" type="number" placeholder="cost (KES)" class="border p-2 rounded w-full outline-none">
+  </div>
+
+  <button
+  class="mt-4 bg-gray-900 text-white px-4 py-2 rounded save-entry-button">
+    Save Entry
+  </button>
+</div>
+
+<table class="min-w-full bg-white rounded shadow  overflow-x-auto whitespace-nowrap">
+  <thead class="bg-gray-300 text-white">
+    <tr>
+      <th class="py-2 px-4">Date</th>
+      <th class="py-2 px-4">Product</th>
+      <th class="py-2 px-4">Opening</th>
+      <th class="py-2 px-4">Closing</th>
+      <th class="py-2 px-4">added</th>
+      <th class="py-2 px-4">cost</th>
+      <th class="py-2 px-4">remove</th>
+    </tr>
+  </thead>
+
+  <tbody id="stockTable" class="text-center">
+   
+    <tr class="border-b">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+                </section>
+                 <div class="hidden fixed inset-0 flex items-center justify-center bg-green-300/40 z-50 text-xl transition-all duration-500 ease-in div-container-error">
+     <div class="p-6 bg-white text-black transition-all duration-500 ease-in  div-container-display">Please enter size and color</div>
+  </div>
+            </div>
+
+            <!--ai suggestions-->
+
+            <div id="ai" class="page hidden">
+ <div class="bg-white p-6 rounded shadow mt-6">
+  <h2 class="text-lg mb-4">AI Business Insights</h2>
+
+  <div id="aiOutput" class="text-gray-500 space-y-2">
+    <p>Click the button to generate insights...</p>
+  </div>
+
+ <button 
+class="generate-ai-btn mt-4 bg-gray-600 text-white px-4 py-2 rounded">
+  Generate AI Insights
+</button>
+</div>
+
+            </div>
+            
+        </main>
+    </div>
+
+</body>
+
+
+<script type="module" src="admin/admin.js"></script>
+</html>

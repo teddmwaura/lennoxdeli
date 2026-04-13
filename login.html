@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🔥 Title (adds trust + branding) -->
+  <title>Login | Lennox deli</title>
+
+  <!-- 🔥 Light description -->
+  <meta name="description" content="Login to your Lennox deli account to manage orders, track deliveries, and enjoy fast food services in Gilgil.">
+
+  <!-- 🔥 Prevent indexing -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+
+  <!-- Login Card -->
+  <form class="w-full max-w-md bg-white p-6 sm:p-8 rounded-xl shadow login-form">
+
+    <h1 class="text-2xl sm:text-3xl  text-center mb-8">
+      Welcome Back
+    </h1>
+
+    <!-- Email -->
+    <input
+      type="text"
+      placeholder="username"
+      class="w-full border px-4 py-3 mb-5 outline-none rounded email"
+      required
+    />
+
+    <!-- Password -->
+    <input
+      type="password"
+      placeholder="Password"
+      class="w-full border px-4 py-3 mb-5 outline-none rounded password"
+      required
+    />
+
+    <!-- Remember + Forgot -->
+    <div class="flex items-center justify-between mb-6 text-sm">
+      <label class="flex items-center gap-2">
+        <input type="checkbox">
+        Remember for 30 days
+      </label>
+
+      <a href="#" class="text-[#4242db] hover:underline">
+        Forgot password?
+      </a>
+    </div>
+
+    <!-- Login Button -->
+    <button
+      type="submit"
+      class="w-full py-3 bg-[#4242db] text-white rounded-md  hover:opacity-90 transition mb-4"
+    >
+      Login
+    </button>
+
+    <!-- Signup -->
+    <p class="text-center text-sm">
+      Don’t have an account?
+      <a href="signup.html" class="text-[#4242db] hover:underline">
+        Sign up
+      </a>
+    </p>
+
+    <!-- Message -->
+      <div class="hidden fixed inset-0 flex items-center justify-center bg-green-300/40 z-50 text-xl transition-all duration-500 ease-in div-container-error">
+     <div class="p-6 bg-white text-black transition-all duration-500 ease-in  div-container-display">Please enter size and color</div>
+  </div>
+
+  </form>
+
+  <!-- Script -->
+  <script type="module" src="signup/login.js"></script>
+ 
+</body>
+</html>
