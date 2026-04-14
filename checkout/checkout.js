@@ -12,49 +12,64 @@ function orderFromCheckout() {
     const phone = document.querySelector('.phone-input').value.trim();
 
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    const total = localStorage.getItem('total') || 0;
+    const total = Number(localStorage.getItem('total')) || 0;
 
-    // 🔴 validation 1: empty fields
     if (!pickup || !phone) {
       showMessage('Please fill in all required fields', 'error');
       return;
     }
 
-    // 🔴 validation 2: empty cart
     if (cartItems.length === 0) {
       showMessage('Your cart is empty', 'error');
       return;
     }
 
-    const orderData = {
-      pickup,
-      phone,
-      items: cartItems,
-      total,
-      status: "pending",
-      date: new Date()
-    };
-
     try {
-      showMessage('Placing your order...', 'info');
+      showMessage('Creating order...', 'info');
 
-      const res = await fetch('http://localhost:3000/order', {
+      // =========================
+      // 1. CREATE ORDER FIRST
+      // =========================
+      const orderRes = await fetch('http://localhost:3000/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(orderData)
+        body: JSON.stringify({
+          pickup,
+          phone,
+          items: cartItems,
+          total,
+          date: new Date().toISOString()
+        })
       });
 
-      const data = await res.json();
+      const orderData = await orderRes.json();
+      console.log(orderData);
 
-      console.log(data);
+      showMessage('Order created. Sending payment request...', 'info');
 
-      showMessage('Order placed successfully 🎉', 'success');
+      // =========================
+      // 2. TRIGGER STK PUSH
+      // =========================
+      const stkRes = await fetch('http://localhost:3000/stkpush', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          phone,
+          amount: total
+        })
+      });
 
-      // optional: clear cart after success
-      localStorage.clear('cart');
-    
+      const stkData = await stkRes.json();
+      console.log(stkData);
+
+      showMessage('Check your phone to complete payment 📲', 'success');
+
+      // clear cart AFTER request
+      localStorage.removeItem('cart');
 
     } catch (error) {
       console.error(error);
@@ -62,7 +77,6 @@ function orderFromCheckout() {
     }
   });
 }
-
 
 displayItems();
 calculateToCheckout()

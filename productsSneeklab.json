@@ -6,62 +6,56 @@
     "productImage": "https://www.shutterstock.com/image-photo/set-fresh-yellow-mango-pineapple-600nw-2512319247.jpg",
 
     "productPrice": {
-      "large": 120,
-      "medium": 80,
+      "large": 100,
       "small": 50
+  
     },
 
     "productColor": [
       {
         "name": "mango",
-        "productImage": "https://5.imimg.com/data5/XT/SR/BW/SELLER-42430332/mango-juice-500x500.jpg"
+        "productImage": "https://thumbs.dreamstime.com/b/peach-mango-pineapple-smoothie-white-background-tropical-fruit-blended-peaches-mangoes-pineapples-generic-glass-53574848.jpg"
       },
       {
         "name": "pineapple",
-        "productImage": "https://www.kuvingsusa.com/cdn/shop/articles/kuvings-blog-pineapple.png?v=1768412532&width=1024"
+        "productImage": "https://static.vecteezy.com/system/resources/previews/004/159/020/non_2x/pineapple-juice-isolated-on-white-background-photo.jpg"
       },
       {
-        "name": "apple",
-        "productImage": "https://media.baamboozle.com/uploads/images/1166423/26351fca-f835-42a9-9b53-b68e6175a769.jpeg"
+        "name": "passion",
+        "productImage": "https://img.freepik.com/premium-photo/passionfruit-juice-glass-fresh-passion-fruit-with-green-leaf-isolated-white-background_264757-125.jpg"
       },
       {
-        "name": "watermelon",
-        "productImage": "https://www.tasteofhome.com/wp-content/uploads/2019/04/watermelon-juice-shutterstock_285112223.jpg?fit=1024,683"
-      },
-      {
-        "name": "mixed juice",
-        "productImage": "https://gonaji.com/wp-content/uploads/2025/03/Juices.webp"
+        "name": "cocktail",
+        "productImage": "https://img.freepik.com/free-photo/png-grapefruit-cocktail-glass-isolated-white-background_185193-162922.jpg?semt=ais_hybrid&w=740&q=80"
       }
     ]
   },
 
   {
     "productId": "25637Bhgyc",
-    "productName": "crispy chips",
+    "productName": "sausage special",
     "productImage": "https://img.freepik.com/premium-photo/french-fries-white-background_269543-544.jpg",
 
-    "productPrice": {
-      "large": 150,
-      "medium": 120,
-      "small": 100
-    },
+    "productPrice": 120,
 
     "productColor": [
       {
-        "name": "chips & sauce",
-        "productImage": "https://img.freepik.com/premium-photo/french-fry-with-tomato-sauce-white-background_525574-202.jpg"
-      },
+        "name": "sausage special",
+        "productImage": "https://thumbs.dreamstime.com/b/grilled-sausage-french-fries-plate-40106054.jpg"
+      }
+    ]
+  },
+    {
+    "productId": "SMK9087lkh",
+    "productName": "smokie special",
+    "productImage": "https://www.shutterstock.com/image-photo/grilled-sliced-fresh-pork-sausage-260nw-43326817.jpg",
+
+    "productPrice": 100,
+
+    "productColor": [
       {
-        "name": "plain chips",
-        "productImage": "https://img.freepik.com/premium-photo/french-fries-white-background_269543-544.jpg"
-      },
-      {
-        "name": "chips & sauce & chilli",
-        "productImage": "https://thumbs.dreamstime.com/b/classic-crispy-french-fries-served-bright-red-ketchup-clean-white-plate-background-side-view-406438146.jpg"
-      },
-      {
-        "name": "chips masala",
-        "productImage": "https://khinskitchen.com/wp-content/uploads/2021/09/masala-chips-7-500x500.jpg"
+        "name": "smokie special",
+        "productImage": "https://www.shutterstock.com/image-photo/grilled-sliced-fresh-pork-sausage-260nw-43326817.jpg"
       }
     ]
   },
@@ -75,40 +69,115 @@
 
     "productColor": [
       {
-        "name": "smokie plain",
+        "name": "smokie",
         "productImage": "https://thumbs.dreamstime.com/b/delicious-smoked-sausages-24546572.jpg"
-      },
-         {
-        "name": "smokie kachubari",
-        "productImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRPDnFY4IaxwUHYwRQDNq9faytO9zOS_8hIQ&s"
-      },
-       {
-        "name": "smokie sause & chilli",
-        "productImage": "https://i.ytimg.com/vi/CC0oqTTejuM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBxPKKFfnBDsbtnbFEtKAR2nGuSvA"
       }
-
     ]
   },
 
   {
     "productId": "SMSA001",
-    "productName": "samosa",
-    "productImage": "https://static.vecteezy.com/system/resources/previews/048/748/844/large_2x/two-crispy-golden-fried-samosas-on-white-background-free-photo.jpeg",
+    "productName": "sausage",
+    "productImage": "https://static.vecteezy.com/system/resources/previews/026/978/295/large_2x/grilled-pork-sausages-with-lettuce-isolated-on-white-background-photo.jpg",
 
     "productPrice": 50,
 
     "productColor": [
       {
-        "name": "samosa plain",
-        "productImage": "https://static.vecteezy.com/system/resources/previews/048/748/844/large_2x/two-crispy-golden-fried-samosas-on-white-background-free-photo.jpeg"
+        "name": "sausage plain",
+        "productImage": "https://static.vecteezy.com/system/resources/previews/026/978/295/large_2x/grilled-pork-sausages-with-lettuce-isolated-on-white-background-photo.jpg"
+      }
+    ]
+  },
+
+  {
+    "productId": "COF123EE",
+    "productName": "coffee",
+    "productImage": "https://img.freepik.com/premium-photo/aromatic-hot-coffee-coffee-white-cup-white-background_49059-834.jpg",
+
+    "productPrice": 40,
+
+    "productColor": [
+      {
+        "name": "coffee",
+        "productImage": "https://img.freepik.com/premium-photo/aromatic-hot-coffee-coffee-white-cup-white-background_49059-834.jpg"
+      }
+    ]
+  },
+
+  {
+    "productId": "TE3453AS",
+    "productName": "tea",
+    "productImage": "https://img.freepik.com/premium-photo/porcelain-cup-tea-with-milk-isolated-white-background_392895-264382.jpg",
+
+    "productPrice": 40,
+
+    "productColor": [
+      {
+        "name": "tea",
+        "productImage": "https://img.freepik.com/premium-photo/porcelain-cup-tea-with-milk-isolated-white-background_392895-264382.jpg"
       },
            {
-        "name": "samosa kachumbari",
-        "productImage": "https://img.freepik.com/premium-photo/samosa-near-ketchup-white-background-front-view_862994-321880.jpg"
-      },
+        "name": "black tea",
+        "productImage": "https://thumbs.dreamstime.com/b/cup-coffee-11353806.jpg"
+      }
+    ]
+  },
+  
+  {
+    "productId": "TE3453AS879kjh",
+    "productName": "black tea",
+    "productImage": "https://thumbs.dreamstime.com/b/cup-coffee-11353806.jpg",
+
+    "productPrice": 40,
+
+    "productColor": [
            {
-        "name": "samosa kachumbari & sause",
-        "productImage": "https://thumbs.dreamstime.com/b/samosas-indian-snack-food-white-background-samosa-fried-68594799.jpg"
+        "name": "black tea",
+        "productImage": "https://thumbs.dreamstime.com/b/cup-coffee-11353806.jpg"
+      }
+    ]
+  },
+   {
+    "productId": "CHI45346EN89",
+    "productName": "chicken",
+    "productImage": "https://static.vecteezy.com/system/resources/thumbnails/071/124/996/small/juicy-roasted-chicken-drumstick-on-a-white-background-perfect-for-food-promotions-photo.jpg",
+
+    "productPrice": 150,
+
+    "productColor": [
+      {
+        "name": "roasted chicken",
+        "productImage": "https://static.vecteezy.com/system/resources/thumbnails/071/124/996/small/juicy-roasted-chicken-drumstick-on-a-white-background-perfect-for-food-promotions-photo.jpg"
+      }
+    ]
+  },
+  {
+    "productId": "CHI45346EN89",
+    "productName": "kfc chicken",
+    "productImage": "https://thumbs.dreamstime.com/b/fried-chicken-pieces-fly-out-white-paper-bucket-isolated-background-crispy-batter-tasty-snack-fast-food-meal-concept-367444442.jpg",
+
+    "productPrice": 200,
+
+    "productColor": [
+           {
+        "name": "KFC chicken",
+        "productImage": "https://thumbs.dreamstime.com/b/fried-chicken-pieces-fly-out-white-paper-bucket-isolated-background-crispy-batter-tasty-snack-fast-food-meal-concept-367444442.jpg"
+      }
+    ]
+  },
+
+  {
+    "productId": "AND43567IH",
+    "productName": "andazi",
+    "productImage": "https://t3.ftcdn.net/jpg/13/38/95/38/360_F_1338953829_lWjXDX0vPW0plf5t94c4NSAcKwEqGjTL.jpg",
+
+    "productPrice": 20,
+
+    "productColor": [
+      {
+        "name": "andazi",
+        "productImage": "https://t3.ftcdn.net/jpg/13/38/95/38/360_F_1338953829_lWjXDX0vPW0plf5t94c4NSAcKwEqGjTL.jpg"
       }
     ]
   }

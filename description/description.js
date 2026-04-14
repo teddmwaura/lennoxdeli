@@ -28,7 +28,7 @@ export function describeProductPage() {
 
   productColor.forEach((color) => {
     thumbnailsHTML += `
-      <div class="mr-4 cursor-pointer border-2 border-transparent">
+      <div class="mr-4 cursor-pointer border-2 border-transparent hover:border-gray-500 transition duration-300 rounded-2xl">
         <img 
           src="${color.productImage}"
           data-image="${color.productImage}"
@@ -76,8 +76,8 @@ export function describeProductPage() {
     </div>
 
     <div class="text-center px-4 sm:px-6 md:px-4 max-w-2xl mx-auto">
-      <h2 class="mb-2 mt-3 text-lg sm:text-xl">@SnackWave</h2>
-      <h1 class="text-xl sm:text-2xl md:text-3xl mb-2">${productName}</h1>
+      <h2 class="mb-2 text-lg sm:text-xl">@Lennox Deli</h2>
+      <h1 class="text-xl sm:text-2xl md:text-3xl mb-3">${productName}</h1>
 
       <p class="mt-4 text-red-500 text-lg product-price">
         ${priceHTML}
@@ -179,4 +179,3 @@ console.log(cart)
 }
 
 describeProductPage();
- 
