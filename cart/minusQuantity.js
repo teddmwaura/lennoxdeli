@@ -1,3 +1,7 @@
+import { renderToCart } from "./renderToCart.js";
+import { updateQuantityIcon } from "./updateCartIcon.js";
+import { calculateCost } from "./calculateCost.js";
+
 export function minusFromCart(){
     const minusButton = document.querySelectorAll('.minus-button-html')
     const cart = JSON.parse(localStorage.getItem('cart'))  || [];
@@ -6,9 +10,9 @@ export function minusFromCart(){
         button.addEventListener('click', ()=>{
        
            
-            const productId = button.dataset.productId
+            const cartId = button.dataset.cartId
 
-         const minusProduct = cart.findIndex(p => String(p.productId) === String(productId))
+         const minusProduct = cart.findIndex(p => p.cartId === cartId)
 
          if(minusProduct === -1){
             return
@@ -21,7 +25,11 @@ export function minusFromCart(){
             cart.splice(minusProduct, 1)
          }
          localStorage.setItem('cart', JSON.stringify(cart))
-         window.location.reload();
+         
+
+          renderToCart()
+             updateQuantityIcon()
+             calculateCost()
         })
     })
 }

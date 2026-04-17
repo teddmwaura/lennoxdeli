@@ -12,7 +12,6 @@ export function displayItems(){
           alt=""/>
           </div>
         <div class="text-center">
-        <p>${product.productName}</p>
           <p>${product.productColor}</p>
           <p>${product.productSize}</p>
           <p>${product.quantity}</p>

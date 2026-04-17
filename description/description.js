@@ -1,6 +1,6 @@
 import { showMessage } from "../scripts/showMessage.js";
 import { updateQuantityIcon } from "../cart/updateCartIcon.js";
-
+import { generateId } from "../cart/generateUniqueId.js";
 
 export function describeProductPage() {
 
@@ -156,6 +156,7 @@ updateQuantityIcon()
       existingItem.quantity += 1;
     } else {
       cart.push({
+        cartId: generateId(),
         productName: productName,
         productImage: selectedImage,
         productColor: selectedColor,

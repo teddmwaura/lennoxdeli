@@ -10,7 +10,7 @@ form.addEventListener('submit', async (e) => {
 
   // 🔴 validation
   if (!email || !password) {
-    showMessage('Please fill all fields', 'error');
+    showMessage('Please fill all fields');
     return;
   }
 

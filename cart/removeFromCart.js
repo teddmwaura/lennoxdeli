@@ -1,22 +1,30 @@
 import { showMessage } from "../scripts/showMessage.js";
+import { calculateCost } from "./calculateCost.js";
+import { updateQuantityIcon } from "./updateCartIcon.js";
+import { renderToCart } from "./renderToCart.js";
+
 export function removeFromCart(){ 
     const cart = JSON.parse(localStorage.getItem('cart')) || []; 
     const deleteButtons = document.querySelectorAll('.remove-from-cart')
     
     deleteButtons.forEach((button)=>{ 
         button.addEventListener('click', ()=>{ 
-            const productId = button.dataset.productId 
+            const cartId = button.dataset.cartId
 
-            console.log(productId) 
+            console.log(cartId) 
          
 
-            const cartItem = cart.findIndex(p => String(p.productId) === String(productId)) 
+            const cartItem = cart.findIndex(p => cartId === cartId) 
 
-            if(cartItem > -1){ cart.splice(cartItem, 1) } 
+            if(cartItem > -1)
+                { cart.splice(cartItem, 1) 
+
+                } 
             localStorage.setItem('cart', JSON.stringify(cart)) 
-          
-            window.location.reload();
 
+            renderToCart()
+            calculateCost()
+            updateQuantityIcon()
             showMessage('product removed successfully', 'success')
          }) 
         }) 

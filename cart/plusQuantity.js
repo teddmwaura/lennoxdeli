@@ -1,16 +1,20 @@
 import { renderToCart } from "./renderToCart.js";
+import { updateQuantityIcon } from "./updateCartIcon.js";
+import { calculateCost } from "./calculateCost.js";
+
 
 export function plusFromCart() {
   const plusButtons = document.querySelectorAll('.plus-button-html');
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
   plusButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      const productId = button.dataset.productId;
+      const cartId = button.dataset.cartId;
 
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-      const itemIndex = cart.findIndex(
-        item => String(item.productId) === String(productId)
+       console.log(cartId)
+      
+      const itemIndex = cart.findIndex(item =>
+       item.cartId === cartId
       );
 
       if (itemIndex === -1) return;
@@ -19,8 +23,9 @@ export function plusFromCart() {
 
       localStorage.setItem('cart', JSON.stringify(cart));
 
-      renderToCart(); // re-renders + re-attaches listeners
-      window.location.reload();
+      renderToCart();
+      updateQuantityIcon();
+      calculateCost();
     });
   });
 }

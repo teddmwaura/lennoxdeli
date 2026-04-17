@@ -61,7 +61,7 @@
   },
 
   {
-    "productId": "SMK001",
+    "productId": "SMK001jkgu",
     "productName": "smokie",
     "productImage": "https://thumbs.dreamstime.com/b/delicious-smoked-sausages-24546572.jpg",
 
@@ -76,7 +76,7 @@
   },
 
   {
-    "productId": "SMSA001",
+    "productId": "SMSA001gdtfb",
     "productName": "sausage",
     "productImage": "https://static.vecteezy.com/system/resources/previews/026/978/295/large_2x/grilled-pork-sausages-with-lettuce-isolated-on-white-background-photo.jpg",
 
@@ -116,10 +116,6 @@
       {
         "name": "tea",
         "productImage": "https://img.freepik.com/premium-photo/porcelain-cup-tea-with-milk-isolated-white-background_392895-264382.jpg"
-      },
-           {
-        "name": "black tea",
-        "productImage": "https://thumbs.dreamstime.com/b/cup-coffee-11353806.jpg"
       }
     ]
   },
@@ -129,7 +125,7 @@
     "productName": "black tea",
     "productImage": "https://thumbs.dreamstime.com/b/cup-coffee-11353806.jpg",
 
-    "productPrice": 40,
+    "productPrice": 30,
 
     "productColor": [
            {

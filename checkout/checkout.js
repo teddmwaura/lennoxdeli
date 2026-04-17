@@ -1,79 +1,107 @@
 import { displayItems } from "./checkoutDisplay.js";
 import {calculateToCheckout} from "./calculateToCheckout.js"
 import { showMessage } from "../scripts/showMessage.js";
+import { showSpinner } from "./waitingSpinner.js";
+import { hideSpinner } from "./waitingSpinner.js";
 
-function orderFromCheckout() {
-  const form = document.querySelector('.checkout-form');
+export function orderFromCheckout() {
+  const form = document.querySelector(".checkout-form");
+  const spinner = document.getElementById("spinner");
 
-  form.addEventListener('submit', async (e) => {
+  const showSpinner = () => spinner.classList.remove("hidden");
+  const hideSpinner = () => spinner.classList.add("hidden");
+
+  async function waitForPayment(orderId) {
+    const interval = setInterval(async () => {
+      const res = await fetch(
+        `http://localhost:3000/payment-status/${orderId}`
+      );
+      const data = await res.json();
+
+      if (data.status === "paid") {
+        clearInterval(interval);
+        hideSpinner();
+        showMessage("💰 Payment successful!", "success");
+        localStorage.clear('cart')
+      }
+
+      if (data.status === "failed") {
+        clearInterval(interval);
+        hideSpinner();
+        showMessage("❌ Payment failed", "error");
+      }
+    }, 3000);
+  }
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const pickup = document.querySelector('.pickup-point').value.trim();
-    const phone = document.querySelector('.phone-input').value.trim();
+    const pickup = document.querySelector(".pickup-point").value.trim();
+    let phone = document.querySelector(".phone-input").value.trim();
 
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    const total = Number(localStorage.getItem('total')) || 0;
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
-    if (!pickup || !phone) {
-      showMessage('Please fill in all required fields', 'error');
+    const amount = cartItems.reduce((sum, item) => {
+      return sum + item.quantity * item.price;
+    }, 0);
+
+    if (!pickup || !phone || cartItems.length === 0) {
+      showMessage("Fill all fields", "error");
       return;
     }
 
-    if (cartItems.length === 0) {
-      showMessage('Your cart is empty', 'error');
-      return;
+    if (phone.startsWith("0")) {
+      phone = "254" + phone.slice(1);
     }
 
     try {
-      showMessage('Creating order...', 'info');
+      showSpinner();
+      showMessage("Creating order...", "info");
 
-      // =========================
-      // 1. CREATE ORDER FIRST
-      // =========================
-      const orderRes = await fetch('http://localhost:3000/orders', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+      // 1. CREATE ORDER
+      const orderRes = await fetch("http://localhost:3000/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           pickup,
           phone,
           items: cartItems,
-          total,
-          date: new Date().toISOString()
-        })
+          total: amount,
+        }),
       });
 
       const orderData = await orderRes.json();
-      console.log(orderData);
+      const orderId = orderData.order.id;
 
-      showMessage('Order created. Sending payment request...', 'info');
+      showMessage("Sending STK...", "info");
 
-      // =========================
-      // 2. TRIGGER STK PUSH
-      // =========================
-      const stkRes = await fetch('http://localhost:3000/stkpush', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+      // 2. STK PUSH
+      const stkRes = await fetch("http://localhost:3000/stkpush", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           phone,
-          amount: total
-        })
+          amount,
+          orderId,
+        }),
       });
 
       const stkData = await stkRes.json();
-      console.log(stkData);
 
-      showMessage('Check your phone to complete payment 📲', 'success');
+      if (!stkRes.ok) {
+        throw new Error(stkData.message);
+      }
 
-      // clear cart AFTER request
-      localStorage.removeItem('cart');
+      showMessage("📲 Check your phone", "success");
 
-    } catch (error) {
-      console.error(error);
-      showMessage('Something went wrong. Try again.', 'error');
+      localStorage.removeItem("cart");
+
+      // 3. WAIT FOR PAYMENT
+      waitForPayment(orderId);
+
+    } catch (err) {
+      hideSpinner();
+      showMessage(err.message, "error");
     }
   });
 }

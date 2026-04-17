@@ -8,6 +8,7 @@ import { calculateExpenses } from "./calculateExpenses.js"
 import { calculateProfit } from "./calculateProfit.js"
 import { calculateOrders } from "./calculateOrders.js"
 import { stockOverview } from "./stockOverview.js"
+import { deleteOrder } from "./deleteOrder.js"
 
 const toggleButtons = document.querySelectorAll('.select-button-js')
 
@@ -36,3 +37,4 @@ calculateExpenses()
 calculateProfit()
 calculateOrders()
 stockOverview()
+deleteOrder()
