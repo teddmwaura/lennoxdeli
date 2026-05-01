@@ -13,9 +13,6 @@ export function orderFromCheckout() {
   const showSpinner = () => spinner.classList.remove("hidden");
   const hideSpinner = () => spinner.classList.add("hidden");
 
-  function showMessage(msg, type) {
-    console.log(type.toUpperCase(), msg); // replace with your UI toast if you have one
-  }
 
   async function waitForPayment(orderId) {
     const interval = setInterval(async () => {
