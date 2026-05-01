@@ -1,8 +1,10 @@
 import { deleteOrder } from "./deleteOrder.js";
 
+const BASE_URL = "https://backend-lennoxdeli.onrender.com";
+
 export async function loadOrders() {
   try {
-    const res = await fetch("http://localhost:3000/orders");
+    const res = await fetch(`${BASE_URL}/orders`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch orders");
@@ -10,13 +12,12 @@ export async function loadOrders() {
 
     const orders = await res.json();
 
-    // 🔥 DEBUG HERE (correct place)
     console.log("ORDERS:", orders);
 
     const table = document.getElementById("ordersTable");
     table.innerHTML = "";
 
-    if (!orders || orders.length === 0) {
+    if (!Array.isArray(orders) || orders.length === 0) {
       table.innerHTML = `
         <tr>
           <td colspan="8" class="text-center py-6 text-gray-500">
@@ -28,15 +29,14 @@ export async function loadOrders() {
     }
 
     orders.reverse().forEach(order => {
-      console.log("ORDER ITEM:", order); // 🔥 extra safety debug
-
       const row = document.createElement("tr");
       row.classList.add("border-b");
 
-      const items = order.items
+      const items = (order.items || [])
         .map(item => {
           if (typeof item === "string") return item;
- const size = item.productSize ? `(${item.productSize})` : "";
+
+          const size = item.productSize ? `(${item.productSize})` : "";
           const color = item.productColor ? `${item.productColor}` : "";
 
           return `${size} ${color}`;
@@ -70,13 +70,11 @@ export async function loadOrders() {
         <td class="py-3 px-4 text-yellow-600">${order.pickup || "N/A"}</td>
         <td class="py-3 px-4 text-gray-600">${items}</td>
         <td class="py-3 px-4 font-semibold text-blue-600">KES ${total}</td>
-
         <td class="py-3 px-4">
           <span class="${statusColor} px-3 py-1 rounded-full text-sm">
             ${order.status}
           </span>
         </td>
-
         <td class="py-3 px-4">
           <button class="delete-btn bg-gray-500 text-white px-3 py-1 rounded hover:bg-red-600">
             Delete

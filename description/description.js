@@ -28,7 +28,7 @@ export function describeProductPage() {
 
   productColor.forEach((color) => {
     thumbnailsHTML += `
-      <div class="mr-4 cursor-pointer border-2 border-transparent hover:border-gray-500 transition duration-300 rounded-2xl">
+      <div class="mr-4 cursor-pointer border-2 border-transparent  rounded-2xl">
         <img 
           src="${color.productImage}"
           data-image="${color.productImage}"
